@@ -1,7 +1,16 @@
 .text {
 text-align: center;
-color: #888c92;}
+color: #888c92;
+font-size: 18px;}
 
 h4 {
 font-size: 36px;
-color: black;}
+color: black;
+margin:10px;}
+
+#demo-clock {
+position:fixed;
+margin:0;
+padding:0;}
+
+p{margin: 5px 30px;}

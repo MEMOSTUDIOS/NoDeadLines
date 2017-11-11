@@ -31,7 +31,7 @@ function render(data, ctx){
     var r = 100,
         m = 70;
     // outer circle
-    ctx.circle(0, 0, { r: 120, fill: 'none', stroke: 'black', 'stroke-width': 10 })
+    ctx.circle(0, 0, { r: 220, fill: 'none', stroke: 'black', 'stroke-width': 10 })
     
     // minute hand
     ctx.line(0, 0, Math.cos(data.time / 60) * m, Math.sin(data.time / 60) * m, {
