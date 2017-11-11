@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/g9/1.0.16/g9.js'></script>
+</head>
+
+<body>
+<div id="demo-clock"></div>
+
+  <script type="text/javascript">
+	var initial = {
+    "time": 72
+}
+
+function render(data, ctx){
+    var r = 100,
+        m = 70;
+    
+    // minute hand
+    ctx.line(0, 0, Math.cos(data.time / 60) * m, Math.sin(data.time / 60) * m, {
+        'stroke-width': 10,
+        'stroke-linecap': 'round',
+        'stroke': 'gray'
+    })
+    
+    // second hand
+    ctx.line(0, 0, Math.cos(data.time) * r, Math.sin(data.time) * r, {
+        'stroke-width': 10,
+        'stroke-linecap': 'round'
+    })
+    
+    ctx.circle(0, 0, { r: 120, fill: 'none', stroke: 'black' })
+}
+
+var graphics = g9(initial, render)
+    .insertInto('#demo-clock')
+
+setInterval(function(){
+    if(!graphics.isManipulating){
+        var data = graphics.getData()
+        data.time += 0.01
+        graphics.setData(data);
+
+console.log(data);
+    }
+}, 50);
+</script>
+</body>
+</html>
