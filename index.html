@@ -19,9 +19,9 @@
 </head>
 
 <body>
-<div id="demo-clock"><div class="text"><h4>No Dead Lines</h4><p>Time is the indefinite continued progress of existence and events
+<div id="demo-clock"><div class="text"><h4>NoDeadLines</h4><p>Time is the indefinite continued progress of existence and events
 that occur in apparently irreversible succession from the past through the
-present to the future.</p></div></div>
+present to the future.</p><p><em>But what if time was reversible?</em></p></div></div>
 
   <script type="text/javascript">
 	var initial = {
@@ -37,7 +37,7 @@ function render(data, ctx){
     ctx.line(0, 0, Math.cos(data.time / 60) * m, Math.sin(data.time / 60) * m, {
         'stroke-width': 10,
         'stroke-linecap': 'round',
-        'stroke': 'lightgray'
+        'stroke': 'gray'
     })
     
     // second hand
