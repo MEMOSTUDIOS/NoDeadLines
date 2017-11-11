@@ -18,16 +18,17 @@
 </head>
 
 <body>
-<div id="demo-clock"></div>
+<div id="demo-clock">NoDeadLines</div>
 
   <script type="text/javascript">
 	var initial = {
     "time": 60
 }
-
 function render(data, ctx){
     var r = 100,
         m = 70;
+    // outer circle
+    ctx.circle(0, 0, { r: 120, fill: 'none', stroke: 'black' })
     
     // minute hand
     ctx.line(0, 0, Math.cos(data.time / 60) * m, Math.sin(data.time / 60) * m, {
@@ -42,18 +43,15 @@ function render(data, ctx){
         'stroke-linecap': 'round'
     })
     
-    ctx.circle(0, 0, { r: 120, fill: 'none', stroke: 'black' })
+    
 }
-
 var graphics = g9(initial, render)
     .insertInto('#demo-clock')
-
 setInterval(function(){
     if(!graphics.isManipulating){
         var data = graphics.getData()
         data.time += 0.01
         graphics.setData(data);
-
 console.log(data);		
     }
 }, 50);
